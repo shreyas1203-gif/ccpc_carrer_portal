@@ -11,11 +11,6 @@ jobs:
     strategy:
       matrix:
         node-version: [16.13.2]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: 'test-master'
 
       - name: Install and build
         run: npm install && npm run build

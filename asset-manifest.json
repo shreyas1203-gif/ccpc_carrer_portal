@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ccpc_career_portal/static/css/main.073c9b0a.css",
+    "main.js": "/ccpc_career_portal/static/js/main.85983521.js",
+    "index.html": "/ccpc_career_portal/index.html",
+    "main.073c9b0a.css.map": "/ccpc_career_portal/static/css/main.073c9b0a.css.map",
+    "main.85983521.js.map": "/ccpc_career_portal/static/js/main.85983521.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.85983521.js"
+  ]
+}

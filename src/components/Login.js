@@ -1,34 +1,3 @@
-// import React from 'react';
-// import {Grid ,Paper,Avatar, TextField,Button} from '@material-ui/core'
-// // import { TextField } from '@mui/material';
-// const Login=()=>{
-
-//     const paperstyle={padding :20, height :'70vh', width: 415, margin:"30px auto"}
-//     return(
-//         <Paper elevation={5} style={paperstyle}>
-//             <Grid align="center">
-//                 <Avatar></Avatar>
-//                 <h2 >Sign in</h2>
-//             </Grid>
-//         <TextField variant="filled" label="Username" placeholder="Enter your username here" fullWidth required className="username"></TextField>
-//         <br/>
-//         <br/>
-//         <TextField variant="filled" label="Password" placeholder="Enter your password here" fullWidth required></TextField>
-//         <br/>
-//         <br/>
-//         <br/>
-//         <br/>
-//         <Button size="large" color="secondary" variant="contained" type="submit" fullWidth >Sign in</Button>
-//         </Paper>
-//     )
-// }
-
-// export default Login
-
-
-
-
-
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -42,21 +11,27 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
+import GoogleLogin from 'react-google-login';
 
 export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
   };
 
+  // const paperstyle={padding: 20, height: '70vh', width: 415, display:'inline-flex',borderRadius:10}
+  const responseGoogle = (message) => {
+    console.log(message);
+  }
   return (
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+    // <Paper elevation={5} style={paperstyle}>
+      <Container component="main" maxWidth="xs" elevation={5}>
+        <CssBaseline/>
         <Box
           sx={{
             marginTop: 8,
@@ -73,7 +48,6 @@ export default function SignIn() {
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
-              variant="filled"
               margin="normal"
               required
               fullWidth
@@ -105,6 +79,15 @@ export default function SignIn() {
             >
               Sign In
             </Button>
+            <div align="center">
+            <GoogleLogin
+              clientId="349988650062-qnjk1bo89h77fvcd4uiatfk1l8aa8fnb.apps.googleusercontent.com"
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={'single_host_origin'}
+            />
+            </div>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
@@ -120,5 +103,6 @@ export default function SignIn() {
           </Box>
         </Box>
       </Container>
+      // </Paper>
   );
 }

@@ -9,7 +9,6 @@ return (
 	<>
 		<Navbar/>
 		<Login/>
-		<br/>
 		<Signup/>
 		
 		

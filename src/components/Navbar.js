@@ -80,10 +80,6 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const gotologin = (event) => {
-    <h1>hello</h1>
-  }
-
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -125,7 +121,7 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+          <Badge badgeContent={4} color="secondary">
             <MailIcon />
           </Badge>
         </IconButton>

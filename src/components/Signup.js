@@ -9,6 +9,10 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
+import GoogleLogin from 'react-google-login';
+
+
 
 export default function SignUp() {
   const handleSubmit = (event) => {
@@ -19,8 +23,13 @@ export default function SignUp() {
       password: data.get('password'),
     });
   };
-
+  const responseGoogle = (message) => {
+    console.log(message);
+  }
+  // const paperstyle={padding: 20, height: '70vh', width: 415, display:'flex',borderRadius:10}
   return (
+    // <div align="right">
+    // <Paper elevation={5} style={paperstyle}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -29,6 +38,7 @@ export default function SignUp() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            elevation: '2'
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -41,7 +51,6 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  variant="filled"
                   autoComplete="given-name"
                   name="firstName"
                   required
@@ -53,7 +62,6 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  variant="filled"
                   required
                   fullWidth
                   id="lastName"
@@ -92,6 +100,15 @@ export default function SignUp() {
             >
               Sign Up
             </Button>
+            <div align="center">
+            <GoogleLogin
+              clientId="349988650062-qnjk1bo89h77fvcd4uiatfk1l8aa8fnb.apps.googleusercontent.com"
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={'single_host_origin'}
+            />
+            </div>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2">
